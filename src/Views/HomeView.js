@@ -1,5 +1,4 @@
 import React from 'react'
-// import { GiSpellBook } from 'react-icons/gi'
 import imgWelcome from '../unnamed.png'
 
 const styles = {

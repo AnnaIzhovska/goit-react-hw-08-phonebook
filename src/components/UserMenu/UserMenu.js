@@ -1,11 +1,9 @@
- import React from 'react'
-import Button from '@material-ui/core/Button'
+import React from 'react'
+import { Button } from '../../Views/Button.styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsername } from '../../redux/auth/auth-selectors'
 import { logOut } from '../../redux/auth/auth-operation'
-import defaultAvatar from './avatar.jpg';
-
-import { GiBatMask } from 'react-icons/gi'
+import defaultAvatar from './user.png';
 
 const styles = {
   container: {
@@ -13,9 +11,12 @@ const styles = {
     alignItems: 'center',
   },
   avatar: {
-    marginRight: 4,
+    backgroundColor: 'none',
+    marginRight: '15px',
+    borderRadius: 5,
   },
   name: {
+    color: '#dcdcdc',
     fontWeight: 700,
     marginRight: 12,
   },
@@ -28,18 +29,14 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
-      <GiBatMask />
-      <img src={avatar} alt="" width="32" style={styles.avatar} />
+      <img src={avatar} alt="" width="30" style={styles.avatar} />
 
-      <span style={styles.name}>Добро пожаловать, {name}</span>
+      <span style={styles.name}> Добро пожаловать, {name}</span>
       <Button
-        variant="contained"
-        color="primary"
-        type="button"
-        size="small"
+        type="submit"
         onClick={() => dispatch(logOut())}
       >
-        go out
+        Log out
       </Button>
     </div>
   )

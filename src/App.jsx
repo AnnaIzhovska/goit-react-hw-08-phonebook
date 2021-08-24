@@ -11,7 +11,7 @@ import PublicRoute from './components/PublicRoute';
 import { getIsFetchingCurrent } from './redux/auth/auth-selectors';
 import { ToastContainer, toast } from 'react-toastify';
 import { getError } from './redux/auth/auth-selectors';
-import { MyLoader } from './components/Loader/Loader';
+import { Loader } from './components/Loader/Loader';
 import styles from './index.css'
 
 
@@ -36,14 +36,13 @@ function App() {
   return (
     <div style={styles.container}>
       {isFetchingCurrent ? (
-        <MyLoader/>
-        // <h2>Make spinner</h2>
+        <h2>Make spinner</h2>
       ) : (
           <>
           <AppBar />
                <ToastContainer autoClose={3000} />
           <Switch>
-            <Suspense fallback={<h2>LOADING...</h2>}>
+            <Suspense fallback={<Loader/>}>
               <PublicRoute exact path='/'>
                 <HomeView />
               </PublicRoute>

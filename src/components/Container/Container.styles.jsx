@@ -9,7 +9,7 @@ export const Containers = styled.div`
   border-radius: 5px;
 
   &:hover{
-      box-shadow: 0px 0px 5px  rgba(20, 247, 247, 0.5);
+       box-shadow: 0 0 20px rgb(135, 206, 250);
   }
 `
 

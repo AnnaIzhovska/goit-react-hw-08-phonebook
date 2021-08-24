@@ -3,7 +3,7 @@ import { TextField } from '@material-ui/core'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { register } from '../redux/auth/auth-operation'
-import { Button} from './Button.styled'
+import { Button } from './Button.styled'
 
 const styles = {
    container: {
@@ -17,7 +17,10 @@ const styles = {
     marginRight: 'auto',
   },
   text: {
-        color: '#424549',
+    color: '#424549',
+  },
+    button: {
+    marginTop: 15,
   },
 
 }
@@ -88,7 +91,8 @@ export default function RegisterView() {
           onChange={handleChange}
         />
 
-        <Button type="submit">
+        <Button type="submit"
+        style={styles.button}>
           Register
         </Button>
       </form>

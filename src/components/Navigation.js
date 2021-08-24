@@ -18,7 +18,7 @@ const styles = {
     fontWeight: 600,
   },
   span: {
-     fontSize: 25,
+    fontSize: 25,
     color: '#fff',
   },
 }

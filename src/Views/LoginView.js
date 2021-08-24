@@ -20,6 +20,9 @@ const styles = {
    text: {
         color: '#424549',
   },
+  button: {
+    marginTop: 15,
+  }
 }
 
 export default function LoginView() {
@@ -72,7 +75,8 @@ export default function LoginView() {
           onChange={handleChange}
         />
 
-        <Button type="submit">
+        <Button type="submit"
+        style={styles.button}>
           To come in
         </Button>
       </form>
