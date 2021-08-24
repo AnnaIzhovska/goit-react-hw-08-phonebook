@@ -11,6 +11,7 @@ import PublicRoute from './components/PublicRoute';
 import { getIsFetchingCurrent } from './redux/auth/auth-selectors';
 import { ToastContainer, toast } from 'react-toastify';
 import { getError } from './redux/auth/auth-selectors';
+import { MyLoader } from './components/Loader/Loader';
 import styles from './index.css'
 
 
@@ -29,19 +30,20 @@ function App() {
   }, [dispatch]);
 
     useEffect(() => {
-    toast.error(error && 'Invalid Authorization');
+    toast.error(error && 'Invalid Authorization &#10060');
   }, [error]);
 
   return (
     <div style={styles.container}>
       {isFetchingCurrent ? (
-        <h2>make spinner</h2>
+        <MyLoader/>
+        // <h2>Make spinner</h2>
       ) : (
-        <>
+          <>
           <AppBar />
                <ToastContainer autoClose={3000} />
           <Switch>
-            <Suspense fallback={<h2>...LOADING</h2>}>
+            <Suspense fallback={<h2>LOADING...</h2>}>
               <PublicRoute exact path='/'>
                 <HomeView />
               </PublicRoute>

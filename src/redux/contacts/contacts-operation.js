@@ -15,7 +15,7 @@ export const fetchContact = createAsyncThunk(
       const { data } = await fetchContacts();
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -28,7 +28,7 @@ export const addContact = createAsyncThunk(
       const { data } = await fetchAddContact(newContact);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -40,7 +40,7 @@ export const deleteContact = createAsyncThunk(
       await fetchDeleteContact(id);
       return id;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

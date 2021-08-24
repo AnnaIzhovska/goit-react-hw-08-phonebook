@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchRegister = (credentials) => {
-  return axios.post('/users/signup', credentials);
+  return axios.post('/users/singup', credentials);
 };
 
 export const fetchlogIn = (credentials) => {

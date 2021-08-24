@@ -31,7 +31,7 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-       return rejectWithValue(error);
+       return rejectWithValue(error.message);
       // TODO: Добавить обработку ошибки error.message
     }
   }
@@ -48,7 +48,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
     token.set(data.token);
     return data;
   } catch (error) {
-     return rejectWithValue(error);
+     return rejectWithValue(error.message);
     // TODO: Добавить обработку ошибки error.message
   }
 });
@@ -63,7 +63,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_,{ rejectWithValue
     await fetchlogOut();
     token.unset();
   } catch (error) {
-    return rejectWithValue(error);
+    return rejectWithValue(error.message);
     // TODO: Добавить обработку ошибки error.message
   }
 });
@@ -92,7 +92,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await fetchCurrentAuth();
       return data;
     } catch (error) {
-       return thunkAPI.rejectWithValue();
+       return thunkAPI.rejectWithValue(error.message);
       // TODO: Добавить обработку ошибки error.message
     }
   }
