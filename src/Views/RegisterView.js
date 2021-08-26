@@ -61,6 +61,8 @@ export default function RegisterView() {
           id="outlined-basic"
           label="Name"
           variant="outlined"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           margin="dense"
           size="medium"
           type="text"
@@ -73,6 +75,9 @@ export default function RegisterView() {
           id="outlined-basic"
           label="Mail"
           variant="outlined"
+          pattern='\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}'
+          title='Номер телефона должен состоять из цифр и может содержать пробелы,
+          тире, круглые скобки и может начинаться с +'
           margin="dense"
           type="email"
           name="email"
