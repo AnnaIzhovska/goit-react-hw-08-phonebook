@@ -71,6 +71,12 @@ export default function LoginView() {
           label="Password"
           variant="outlined"
           margin="dense"
+          error={password.length < 1 || password.length > 6 ? false : true}
+          helperText={
+            password.length < 1 || password.length > 6
+              ? ''
+              : 'need more symbols'
+          }
           type="password"
           name="password"
           value={password}

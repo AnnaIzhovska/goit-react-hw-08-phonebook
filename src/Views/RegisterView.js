@@ -86,6 +86,12 @@ export default function RegisterView() {
         />
 
         <TextField
+           error={password.length < 1 || password.length > 6 ? false : true}
+          helperText={
+            password.length < 1 || password.length > 6
+              ? ''
+              : 'need more symbols'
+          }
           id="outlined-basic"
           label="Password"
           variant="outlined"

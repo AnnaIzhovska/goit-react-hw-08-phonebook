@@ -13,6 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
 import contactsReducer from './contacts/sliceContact';
+import themeReducer from './theme/themeReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -34,6 +35,7 @@ export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     auth: persistReducer(authPersistConfig, authReducer),
+    themeColor: themeReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
