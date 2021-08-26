@@ -36,7 +36,7 @@ function App() {
   return (
     <div style={styles.container}>
       {isFetchingCurrent ? (
-        <h2>Make spinner</h2>
+        <Loader/>
       ) : (
           <>
           <AppBar />
