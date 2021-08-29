@@ -22,7 +22,7 @@ export default function AuthNav() {
   return (
     <div>
       <NavLink
-        to='/singup'
+        to='/register'
         exact
         style={styles.link}
         activeStyle={styles.activeLink}

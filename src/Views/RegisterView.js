@@ -3,7 +3,7 @@ import { TextField } from '@material-ui/core'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { register } from '../redux/auth/auth-operation'
-import { Button } from './Button.styled'
+import { Button } from './Button.styles'
 
 const styles = {
    container: {
@@ -61,6 +61,8 @@ export default function RegisterView() {
           id="outlined-basic"
           label="Name"
           variant="outlined"
+          placeholder='Anna'
+          autoComplete='all'
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           margin="dense"
@@ -69,20 +71,23 @@ export default function RegisterView() {
           name="name"
           value={name}
           onChange={handleChange}
+          required
         />
 
         <TextField
           id="outlined-basic"
           label="Mail"
           variant="outlined"
+          autoComplete='all'
+          placeholder='Annam@gmail.com'
           pattern='\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}'
-          title='Номер телефона должен состоять из цифр и может содержать пробелы,
-          тире, круглые скобки и может начинаться с +'
+          title='Email должен собержать @'
           margin="dense"
           type="email"
           name="email"
           value={email}
           onChange={handleChange}
+          required
         />
 
         <TextField
@@ -95,16 +100,21 @@ export default function RegisterView() {
           id="outlined-basic"
           label="Password"
           variant="outlined"
+          placeholder='Mns8921'
+          autoComplete='all'
+          title="Пароль может состоять из букв и цыфр. Не менее 6 символов"
           margin="dense"
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
+          required
         />
 
         <Button type="submit"
-        style={styles.button}>
-          Register
+          style={styles.button}
+          disabled={ !name || !email || !password }>
+          Sing Up
         </Button>
       </form>
     </div>

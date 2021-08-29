@@ -9,8 +9,9 @@ import AppBar from './components/AppBar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { getIsFetchingCurrent } from './redux/auth/auth-selectors';
-import { ToastContainer, toast } from 'react-toastify';
-import { getError } from './redux/auth/auth-selectors';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import { getError } from './redux/auth/auth-selectors';
 import { Loader } from './components/Loader/Loader';
 import styles from './index.css'
 
@@ -23,15 +24,10 @@ const ContactsView = lazy(() => import('./Views/ContactView'));
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrent = useSelector(getIsFetchingCurrent);
-  const error = useSelector(getError);
-  
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
-
-    useEffect(() => {
-    toast.error(error && 'Invalid Authorization &#10060');
-  }, [error]);
 
   return (
     <div style={styles.container}>
@@ -46,7 +42,7 @@ function App() {
               <PublicRoute exact path='/'>
                 <HomeView />
               </PublicRoute>
-              <PublicRoute path='/singup' restricted>
+              <PublicRoute path='/register' restricted>
                 <RegisterView />
               </PublicRoute>
               <PublicRoute path='/login' restricted redirectTo='/contacts'>
