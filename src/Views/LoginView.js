@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from './Button.styles'
+import { HiOutlineLockClosed } from 'react-icons/hi'
 
 import { TextField } from '@material-ui/core'
 import { logIn } from '../redux/auth/auth-operation'
@@ -18,7 +19,8 @@ const styles = {
     marginRight: 'auto',
   },
    text: {
-        color: '#424549',
+    color: '#424549',
+    marginTop: 0,
   },
   button: {
     marginTop: 15,
@@ -50,6 +52,7 @@ export default function LoginView() {
 
   return (
     <div style={styles.container}>
+      <HiOutlineLockClosed size={50} color={'#424549'}/>
       <h1 style={styles.text}>Log in</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">

@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 import { logOut } from '../../redux/auth/auth-operation'
 import defaultAvatar from './user.png';
 import { FiLogOut } from 'react-icons/fi'
+import { SiFossa } from 'react-icons/si'
+
 
 const styles = {
   container: {
@@ -31,6 +33,7 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
+      <SiFossa/>
       <img src={avatar} alt="" width="30" style={styles.avatar} />
 
       <span style={styles.name}> Добро пожаловать</span>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import {
   fetchRegister,
   fetchlogIn,
@@ -27,7 +27,9 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error("Check the details maybe you are already registered");
+      toast.error("Check the details maybe you are already registered",{
+  theme: "colored"
+});
       return rejectWithValue(error.message);
     }
   }
@@ -39,7 +41,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
     token.set(data.token);
     return data;
   } catch (error) {
-      toast.error("Please, try again");
+      toast.warn("Please, try again");
       return rejectWithValue(error.message);
   }
 });

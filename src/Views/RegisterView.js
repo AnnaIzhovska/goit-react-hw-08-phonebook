@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { register } from '../redux/auth/auth-operation'
 import { Button } from './Button.styles'
+import { HiUserCircle } from 'react-icons/hi'
 
 const styles = {
    container: {
@@ -18,6 +19,7 @@ const styles = {
   },
   text: {
     color: '#424549',
+    marginTop: 0,
   },
     button: {
     marginTop: 15,
@@ -54,6 +56,7 @@ export default function RegisterView() {
 
   return (
     <div style={styles.container}>
+      <HiUserCircle size={50} color={ '#424549' }/>
       <h1 style={styles.text}>Sing up</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">

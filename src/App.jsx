@@ -9,11 +9,10 @@ import AppBar from './components/AppBar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { getIsFetchingCurrent } from './redux/auth/auth-selectors';
-import { Toaster } from "react-hot-toast";
 import 'react-toastify/dist/ReactToastify.css';
-// import { getError } from './redux/auth/auth-selectors';
 import { Loader } from './components/Loader/Loader';
 import styles from './index.css'
+import { ToastContainer } from 'react-toastify';
 
 
 const HomeView = lazy(() => import('./Views/HomeView'));
@@ -36,7 +35,7 @@ function App() {
       ) : (
           <>
           <AppBar />
-               <Toaster autoClose={3000}  position="top-right"/>
+               <ToastContainer autoClose={3000}  position='top-right'/>
           <Switch>
             <Suspense fallback={<Loader/>}>
               <PublicRoute exact path='/'>
