@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from "react-hot-toast";
 import {
   fetchRegister,
   fetchlogIn,
@@ -26,8 +27,8 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return <h1>Error...</h1>;
-      //  return rejectWithValue(error.message);
+      toast.error("Check the details maybe you are already registered");
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -38,8 +39,8 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
     token.set(data.token);
     return data;
   } catch (error) {
-    return <h1>Error...</h1>;
-    //  return rejectWithValue(error.message);
+      toast.error("Please, try again");
+      return rejectWithValue(error.message);
   }
 });
 
@@ -48,8 +49,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_,{ rejectWithValue
     await fetchlogOut();
     token.unset();
   } catch (error) {
-    return <h1>Error...</h1>;
-    //  return rejectWithValue(error.message);
+    toast.success("You have logged out");
+    return rejectWithValue(error.message);
+
   }
 });
 
@@ -68,8 +70,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await fetchCurrentAuth();
       return data;
     } catch (error) {
-       return <h1>Error...</h1>;
-      //  return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
