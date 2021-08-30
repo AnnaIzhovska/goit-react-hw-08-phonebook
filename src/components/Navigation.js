@@ -23,12 +23,13 @@ const styles = {
   },
 }
 
-const Navigation = () => {
+function Navigation () {
+
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
-      <nav>
+<nav>
     <NavLink to='/' exact style={styles.link} activeStyle={styles.activeLink}>
-        Home
+     Home
     </NavLink>
    
       {isLoggedIn &&
@@ -40,9 +41,8 @@ const Navigation = () => {
       >
         <span style={styles.span}> | </span>
         PhoneBook
-    </NavLink>}
-   
-  </nav>
+        </NavLink>}
+</nav>
   )
 
 }

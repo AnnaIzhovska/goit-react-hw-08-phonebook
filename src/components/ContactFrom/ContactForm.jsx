@@ -37,7 +37,7 @@ function ContactForm() {
 
     if (contacts.some((contact) => contact.name === name || contact.number === number)) {
       toast.error(`${name} or ${number} already in the contacts.`);
-        reset()
+        // reset()
       return;
     
     }

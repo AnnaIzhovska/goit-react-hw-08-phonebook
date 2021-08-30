@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from './Button.styles'
 import { HiOutlineLockClosed } from 'react-icons/hi'
-
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
 import { TextField } from '@material-ui/core'
 import { logIn } from '../redux/auth/auth-operation'
 
@@ -24,6 +25,11 @@ const styles = {
   },
   button: {
     marginTop: 15,
+  },
+  checkbox: {
+    justifyContent: 'center',
+    display: 'flex',
+
   }
 }
 
@@ -92,7 +98,11 @@ export default function LoginView() {
           onChange={handleChange}
           required
         />
-
+        <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+          label="Remember me"
+          style={styles.checkbox}
+          />
         <Button type="submit"
           style={styles.button}
           disabled={!email || !password}>

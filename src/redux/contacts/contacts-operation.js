@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import {
   fetchContacts,
   fetchAddContact,
@@ -6,7 +6,8 @@ import {
 } from 'services/contactsApi.js';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://611a85245710ca00173a1a7b.mockapi.io';
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+  // 'https://611a85245710ca00173a1a7b.mockapi.io';
 
 export const fetchContact = createAsyncThunk(
   'contacts/fetchContact',
@@ -15,7 +16,7 @@ export const fetchContact = createAsyncThunk(
       const { data } = await fetchContacts();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
   }
 );
@@ -28,7 +29,7 @@ export const addContact = createAsyncThunk(
       const { data } = await fetchAddContact(newContact);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
   }
 );
@@ -40,7 +41,7 @@ export const deleteContact = createAsyncThunk(
       await fetchDeleteContact(id);
       return id;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
   }
 );

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import {
   fetchRegister,
   fetchlogIn,
@@ -20,17 +20,17 @@ const token = {
 };
 
 export const register = createAsyncThunk(
-  'auth/singup',
+  'auth/register',
   async (credentials,{ rejectWithValue }) => {
     try {
       const { data } = await fetchRegister(credentials);
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error("Check the details maybe you are already registered",{
-  theme: "colored"
+      toast.error('Check the details maybe you are already registered',{
+  theme: 'colored'
 });
-      return rejectWithValue(error.message);
+      // return rejectWithValue(error.message);
     }
   }
 );
@@ -41,8 +41,8 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
     token.set(data.token);
     return data;
   } catch (error) {
-      toast.warn("Please, try again");
-      return rejectWithValue(error.message);
+      toast.warn('Please, try again');
+      // return rejectWithValue(error.message);
   }
 });
 
@@ -51,8 +51,8 @@ export const logOut = createAsyncThunk('auth/logout', async (_,{ rejectWithValue
     await fetchlogOut();
     token.unset();
   } catch (error) {
-    toast.success("You have logged out");
-    return rejectWithValue(error.message);
+    toast.success('You have logged out');
+    // return rejectWithValue(error.message);
 
   }
 });
@@ -72,7 +72,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await fetchCurrentAuth();
       return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+        // return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
