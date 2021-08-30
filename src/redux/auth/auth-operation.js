@@ -30,7 +30,7 @@ export const register = createAsyncThunk(
       toast.error('Check the details maybe you are already registered',{
   theme: 'colored'
 });
-      // return rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -42,7 +42,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
     return data;
   } catch (error) {
       toast.warn('Please, try again');
-      // return rejectWithValue(error.message);
+      return rejectWithValue(error.message);
   }
 });
 
@@ -52,7 +52,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_,{ rejectWithValue
     token.unset();
   } catch (error) {
     toast.success('You have logged out');
-    // return rejectWithValue(error.message);
+    return rejectWithValue(error.message);
 
   }
 });
@@ -72,7 +72,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await fetchCurrentAuth();
       return data;
     } catch (error) {
-        // return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
