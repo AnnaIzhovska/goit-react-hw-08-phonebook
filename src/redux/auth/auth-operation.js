@@ -25,6 +25,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await fetchRegister(credentials);
       token.set(data.token);
+      toast.success("You are successfully registered");
       return data;
     } catch (error) {
       toast.error('Check the details maybe you are already registered',{
@@ -35,10 +36,13 @@ export const register = createAsyncThunk(
   }
 );
 
-export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectWithValue }) => {
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, { rejectWithValue }) => {
   try {
     const { data } = await fetchlogIn(credentials);
     token.set(data.token);
+    toast.success("You are successfully registered");
     return data;
   } catch (error) {
       toast.warn('Please, try again');
@@ -46,7 +50,9 @@ export const logIn = createAsyncThunk('auth/login', async (credentials,{ rejectW
   }
 });
 
-export const logOut = createAsyncThunk('auth/logout', async (_,{ rejectWithValue }) => {
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
   try {
     await fetchlogOut();
     token.unset();

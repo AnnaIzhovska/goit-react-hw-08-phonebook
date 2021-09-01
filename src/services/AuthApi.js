@@ -3,17 +3,17 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchRegister = (credentials) => {
-  return axios.post('/user/singup', credentials);
+  return axios.post('/users/singup', credentials);
 };
 
 export const fetchlogIn = (credentials) => {
-  return axios.post('/user/login', credentials);
+  return axios.post('/users/login', credentials);
 };
 
 export const fetchlogOut = () => {
-  return axios.post('/user/logout');
+  return axios.post('/users/logout');
 };
 
 export const fetchCurrentAuth = () => {
-  return axios.get('/user/current');
+  return axios.get('/users/current');
 };
